@@ -9,36 +9,59 @@
    ═══════════════════════════════════════════════════════════ */
 
 // ── CONSTANTS ──
-const SHARED_IMAGE_URL = "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790426049/ChatGPT_Image_Sep_26_2026_06_00_29_PM_kdfa4d.png";
-
-// ── DATA (25 Characters) ──
+// ── DATA (25 Characters with dedicated Cloudinary Image URLs) ──
 const CHARACTERS = [
-  { id: 1, movie: "Jailer", character: "Muthuvel Pandian / Tiger Muthuvel Pandian" },
-  { id: 2, movie: "Petta", character: "Kaali / Petta Velan" },
-  { id: 3, movie: "Kaala", character: "Karikalan (Kaala)" },
-  { id: 4, movie: "Kabali", character: "Kabaleeswaran" },
-  { id: 5, movie: "Enthiran", character: "Dr. Vaseegaran / Chitti" },
-  { id: 6, movie: "Sivaji", character: "Sivaji Arumugam / M.G.R." },
-  { id: 7, movie: "Chandramukhi", character: "Dr. Saravanan / Vettaiyan Raja" },
-  { id: 8, movie: "Padayappa", character: "Aarupadayappa" },
-  { id: 9, movie: "Arunachalam", character: "Arunachalam" },
-  { id: 10, movie: "Muthu", character: "Muthu / Zamindar Ayya" },
-  { id: 11, movie: "Baasha", character: "Manickam / Manick Baasha" },
-  { id: 12, movie: "Ejamaan", character: "Vaanavarayan" },
-  { id: 13, movie: "Annamalai", character: "Annamalai" },
-  { id: 14, movie: "Thalapathi", character: "Surya" },
-  { id: 15, movie: "Dharmathin Thalaivan", character: "Prof. Balu Subramaniam / Shankar" },
-  { id: 16, movie: "Baba", character: "Baba" },
-  { id: 17, movie: "Kochadaiiyaan", character: "Kochadaiiyaan / Rana / Seena" },
-  { id: 18, movie: "Lingaa", character: "Raja Lingeswaran / Lingaa" },
-  { id: 19, movie: "2.0", character: "Dr. Vaseegaran / Chitti" },
-  { id: 20, movie: "Darbar", character: "Aaditya Arunachalam" },
-  { id: 21, movie: "Annaatthe", character: "Kaalaiyan" },
-  { id: 22, movie: "Padikkadavan", character: "Raja (Rajendran)" },
-  { id: 23, movie: "Vettaiyan", character: "S. P. Athiyan" },
-  { id: 24, movie: "Coolie", character: "Deva" },
-  { id: 25, movie: "Billa", character: "Billa / Rajappa" }
+  { id: 1, movie: "Jailer", character: "Muthuvel Pandian / Tiger Muthuvel Pandian", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483434/Jailer_jpdxeb.png" },
+  { id: 2, movie: "Petta", character: "Kaali / Petta Velan", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483433/Petta_s06jps.png" },
+  { id: 3, movie: "Kaala", character: "Karikalan (Kaala)", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483433/Kaala_oxadcq.png" },
+  { id: 4, movie: "Kabali", character: "Kabaleeswaran", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483439/Kabali_sczrl5.png" },
+  { id: 5, movie: "Enthiran", character: "Dr. Vaseegaran / Chitti", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483432/Enthiran_x6unle.png" },
+  { id: 6, movie: "Sivaji", character: "Sivaji Arumugam / M.G.R.", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483432/Sivaji_uwquxz.png" },
+  { id: 7, movie: "Chandramukhi", character: "Dr. Saravanan / Vettaiyan Raja", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483431/Chandramukhi_hamiib.png" },
+  { id: 8, movie: "Padayappa", character: "Aarupadayappa", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483438/Padayappa_sul8ex.png" },
+  { id: 9, movie: "Arunachalam", character: "Arunachalam", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483431/Arunachalam_frfovy.png" },
+  { id: 10, movie: "Muthu", character: "Muthu / Zamindar Ayya", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483430/Muthu_sceanp.png" },
+  { id: 11, movie: "Baasha", character: "Manickam / Manick Baasha", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483431/Baasha_k3hqwy.png" },
+  { id: 12, movie: "Ejamaan", character: "Vaanavarayan", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483429/Ejamaan_udck0s.png" },
+  { id: 13, movie: "Annamalai", character: "Annamalai", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483436/Annamalai_y7obai.png" },
+  { id: 14, movie: "Thalapathi", character: "Surya", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483429/Thalapathi_ed3zmc.png" },
+  { id: 15, movie: "Dharmathin Thalaivan", character: "Prof. Balu Subramaniam / Shankar", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483429/Dharmathin_Thalaivan_lhy0nd.png" },
+  { id: 16, movie: "Baba", character: "Baba", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483427/Baba_kdzhr2.png" },
+  { id: 17, movie: "Kochadaiiyaan", character: "Kochadaiiyaan / Rana / Seena", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483428/Kochadaiiyaan_sjcaaf.png" },
+  { id: 18, movie: "Lingaa", character: "Raja Lingeswaran / Lingaa", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483428/Lingaa_ehkyf2.png" },
+  { id: 19, movie: "2.0", character: "Dr. Vaseegaran / Chitti", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483430/2.0_f2umzx.png" },
+  { id: 20, movie: "Darbar", character: "Aaditya Arunachalam", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483427/Darbar_iacpzx.png" },
+  { id: 21, movie: "Annaatthe", character: "Kaalaiyan", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483427/Annaatthe_m3te80.png" },
+  { id: 22, movie: "Padikkadavan", character: "Raja (Rajendran)", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483430/Padikkadavan_frjh8n.png" },
+  { id: 23, movie: "Vettaiyan", character: "S. P. Athiyan", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483426/Vettaiyan_jka1xg.png" },
+  { id: 24, movie: "Coolie", character: "Deva", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483431/Coolie_vvu8sv.png" },
+  { id: 25, movie: "Billa", character: "Billa / Rajappa", image: "https://res.cloudinary.com/dkht5j3tw/image/upload/v1790483426/Billa_qqscvu.png" }
 ];
+
+// ═══════════════════════════════════════════════════════════
+// ASSET PRELOADING (All 25 Character Images)
+// ═══════════════════════════════════════════════════════════
+function preloadAllImages() {
+  return new Promise((resolve) => {
+    let loaded = 0;
+    const total = CHARACTERS.length;
+    
+    CHARACTERS.forEach((item) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = img.onerror = () => {
+        loaded++;
+        if (loaderBar) loaderBar.style.width = `${(loaded / total) * 100}%`;
+        if (loaderProg) loaderProg.textContent = `${loaded} / ${total} images`;
+        if (loaded === total) {
+          resolve();
+        }
+      };
+      img.src = item.image;
+    });
+  });
+}
+
 
 // ── STATE ──
 let availablePool = [...CHARACTERS];      // characters still in play
@@ -514,7 +537,7 @@ function revealLandedInPanel(winner) {
   if (panelWinBadge) panelWinBadge.textContent = `#${winner.id}`;
   panelChar.textContent = winner.character;
   panelMovie.textContent = winner.movie;
-  panelImage.src = SHARED_IMAGE_URL;
+  panelImage.src = winner.image;
   panelImage.alt = winner.character;
 
   panelLandedView.classList.remove('hidden');
@@ -528,7 +551,7 @@ function showReveal(winner, poolIndex) {
   if (revealNumBadge) revealNumBadge.textContent = `#${winner.id}`;
   revealChar.textContent = winner.character;
   revealMovie.textContent = winner.movie;
-  revealImage.src = SHARED_IMAGE_URL;
+  revealImage.src = winner.image;
   revealImage.alt = winner.character;
   revealOverlay.classList.remove('hidden');
 
@@ -731,15 +754,149 @@ function startIdleLightLoop() {
 }
 
 // ═══════════════════════════════════════════════════════════
+// DRIFTING IMAGE WALL ENGINE (GPU-Accelerated 60fps parallax)
+// ═══════════════════════════════════════════════════════════
+class DriftWallEngine {
+  constructor(containerId, items, config = {}) {
+    this.container = document.getElementById(containerId);
+    this.items = items;
+    this.config = Object.assign({
+      columns: 5,
+      tileWidth: 220,
+      tileHeight: 145,
+      gap: 18,
+      speed: 44,
+      direction: "up",
+      parallax: 0.4,
+      dim: 0.4,
+      overlayColor: "#0B0B0E",
+      grayscale: false,
+      pauseOnHover: false
+    }, config);
+
+    this.columnEls = [];
+    this.columnPositions = [];
+    this.columnSpeeds = [];
+    this.singleSetHeight = 0;
+    this.animId = null;
+    this.lastTime = 0;
+
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+    this.container.innerHTML = '';
+
+    // Dark Overlay matching #0B0B0E theme & dim 0.4
+    const overlay = document.createElement('div');
+    overlay.className = 'drift-wall-overlay';
+    this.container.appendChild(overlay);
+
+    // Grid container
+    const grid = document.createElement('div');
+    grid.className = 'drift-wall-grid';
+    grid.style.gap = `${this.config.gap}px`;
+
+    const numCols = this.config.columns;
+    const tileHeight = this.config.tileHeight;
+    const gap = this.config.gap;
+
+    const numItems = this.items.length;
+    this.singleSetHeight = numItems * (tileHeight + gap);
+
+    for (let c = 0; c < numCols; c++) {
+      const colEl = document.createElement('div');
+      colEl.className = 'drift-column';
+      colEl.style.width = `${this.config.tileWidth}px`;
+      colEl.style.gap = `${gap}px`;
+
+      // Parallax multiplier per column
+      const speedFactors = [0.85, 1.15, 1.0, 1.25, 0.9];
+      const parallaxMult = 1 + (speedFactors[c % speedFactors.length] - 1) * this.config.parallax;
+      this.columnSpeeds.push(parallaxMult);
+      this.columnPositions.push(-(c * 210) % this.singleSetHeight);
+
+      // Rotate array items per column for varied visual pattern
+      const offset = (c * 5) % numItems;
+      const columnItems = [...this.items.slice(offset), ...this.items.slice(0, offset)];
+      // Clone set to form seamless infinite loop
+      const doubleItems = [...columnItems, ...columnItems];
+
+      doubleItems.forEach(item => {
+        const tile = document.createElement('div');
+        tile.className = 'drift-tile';
+        tile.style.width = `${this.config.tileWidth}px`;
+        tile.style.height = `${tileHeight}px`;
+
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.title || '';
+        img.loading = 'eager';
+
+        const titleBadge = document.createElement('div');
+        titleBadge.className = 'drift-tile-title';
+        titleBadge.textContent = item.title || '';
+
+        tile.appendChild(img);
+        tile.appendChild(titleBadge);
+        colEl.appendChild(tile);
+      });
+
+      grid.appendChild(colEl);
+      this.columnEls.push(colEl);
+    }
+
+    this.container.appendChild(grid);
+    this.start();
+  }
+
+  start() {
+    this.lastTime = performance.now();
+    const animate = (now) => {
+      const dt = Math.min((now - this.lastTime) / 1000, 0.1);
+      this.lastTime = now;
+
+      const baseSpeed = this.config.speed;
+      const dirMult = this.config.direction === "down" ? -1 : 1;
+
+      for (let c = 0; c < this.columnEls.length; c++) {
+        let pos = this.columnPositions[c];
+        pos -= baseSpeed * this.columnSpeeds[c] * dirMult * dt;
+
+        if (dirMult === 1 && pos <= -this.singleSetHeight) {
+          pos += this.singleSetHeight;
+        } else if (dirMult === -1 && pos >= 0) {
+          pos -= this.singleSetHeight;
+        }
+
+        this.columnPositions[c] = pos;
+        this.columnEls[c].style.transform = `translate3d(0, ${pos.toFixed(2)}px, 0)`;
+      }
+
+      this.animId = requestAnimationFrame(animate);
+    };
+
+    this.animId = requestAnimationFrame(animate);
+  }
+
+  destroy() {
+    if (this.animId) cancelAnimationFrame(this.animId);
+  }
+}
+
+let driftWallInstance = null;
+
+// ═══════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════
 async function init() {
   totalCountEl.textContent = CHARACTERS.length;
 
-  // Preload single shared reveal image
-  await preloadSharedImage();
+  // 1. Preload all 25 character images
+  await preloadAllImages();
 
-  await new Promise(r => setTimeout(r, 200));
+  await new Promise(r => setTimeout(r, 150));
 
   loadingScreen.classList.add('hidden');
   appEl.classList.remove('hidden');
@@ -765,3 +922,4 @@ async function init() {
 
 // Start
 init();
+
